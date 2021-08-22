@@ -25,7 +25,7 @@ namespace backendcrudangular.Controllers
             try
             {
                 var lisTarjetas =await  _context.TarjetaCredito.ToListAsync();
-                return Ok();
+                return Ok(lisTarjetas);
             }
             catch (Exception ex)
             {
@@ -81,7 +81,7 @@ namespace backendcrudangular.Controllers
             try
             {
                 var tarjeta = await _context.TarjetaCredito.FindAsync(id);
-                if (tarjeta != null) 
+                if (tarjeta == null) 
                 {
                     return NotFound();
                 }
